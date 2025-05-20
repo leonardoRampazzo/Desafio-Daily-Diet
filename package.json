@@ -15,18 +15,21 @@
     "@react-navigation/native-stack": "^7.3.12",
     "expo": "~53.0.8",
     "expo-font": "~13.3.1",
+    "expo-linear-gradient": "~14.1.4",
     "expo-status-bar": "~2.2.3",
+    "js-md5": "^0.8.3",
     "phosphor-react-native": "^2.3.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.2",
-    "react-native-web": "^0.20.0",
-    "styled-components": "^6.1.18",
+    "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.10.0",
-    "react-native-safe-area-context": "5.4.0"
+    "react-native-web": "^0.20.0",
+    "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@types/js-md5": "^0.7.2",
     "@types/react": "~19.0.10",
     "babel-plugin-module-resolver": "^5.0.2",
     "typescript": "~5.8.3"
