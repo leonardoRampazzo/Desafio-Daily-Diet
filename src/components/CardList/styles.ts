@@ -46,5 +46,5 @@ export const Stat = styled.View<Props>`
   height: 20px;
   width: 20px;
   border-radius: 20px;
-  background-color: ${({ theme, Green }) => Green ? theme.COLORS.GREEN_LIGH : theme.COLORS.RED_LIGH};
+  background-color: ${({ theme, Green }) => Green ? theme.COLORS.GREEN_MID : theme.COLORS.RED_MID};
 `

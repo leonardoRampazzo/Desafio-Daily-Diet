@@ -1,16 +1,15 @@
 import { StatusBar } from "react-native";
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider } from 'styled-components/native';
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { ThemeProvider } from "styled-components/native";
 
-import Home from "@screens/Home";
-import Status from '@screens/Status';
-import theme from '@theme/index';
+import { Routes } from "src/Routes";
+import theme from "@theme/index";
 
 import {
   useFonts,
   NunitoSans_400Regular,
-  NunitoSans_700Bold
-} from '@expo-google-fonts/nunito-sans';
+  NunitoSans_700Bold,
+} from "@expo-google-fonts/nunito-sans";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
@@ -23,8 +22,8 @@ export default function App() {
           translucent
           barStyle="dark-content"
         />
-        <Home />
+        <Routes />
       </SafeAreaProvider>
     </ThemeProvider>
-  )
+  );
 }
