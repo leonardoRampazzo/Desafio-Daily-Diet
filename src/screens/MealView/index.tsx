@@ -36,7 +36,7 @@ export default function MealView() {
   const [modal, setModal] = useState(false);
 
   const handleEditMeal = () => {
-    navigation.navigate("meal");
+    navigation.navigate("meal", meal);
   };
 
   const handleModalDelete = () => {

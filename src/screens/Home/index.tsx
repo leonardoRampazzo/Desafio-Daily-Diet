@@ -51,7 +51,7 @@ export default function Home() {
     meals.forEach((meal) => {
       const {
         Data: date,
-        Hour: hour,
+        Hora: hour,
         Name: name,
         Status: status,
         Desc: desc,

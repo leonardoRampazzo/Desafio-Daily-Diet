@@ -12,18 +12,14 @@ import { Input } from "@components/Input";
 import ButtonOpt from "@components/ButtonOpt";
 import Header from "@components/Header";
 
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import {
+  useFocusEffect,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
+import { useCallback, useState } from "react";
 
-import { mealCreate } from "@storage/meal";
-
-type RouteParams = {
-  Name?: string;
-  Description?: string;
-  Date?: string;
-  Hour?: string;
-  Status?: boolean;
-};
+import { editMeal, mealCreate } from "@storage/meal";
 
 export default function Meal() {
   const [name, setName] = useState("");
@@ -32,27 +28,48 @@ export default function Meal() {
   const [hour, setHour] = useState("");
   const [status, setStatus] = useState<boolean | null>(null);
 
+  const [editing, setEditing] = useState(false);
+
   const navigation = useNavigation();
+
+  const route = useRoute();
+  let meal = route.params as Meal;
 
   const handleSaveMeal = async () => {
     if (!name || !description || !date || !hour || status === null) {
       return alert("Preencha todos os campos!");
     }
-
     try {
-      let meal = {
+      let mealNew = {
         Name: name,
         Desc: description,
         Data: date,
-        Hour: hour,
+        Hora: hour,
         Status: status,
       };
-
-      await mealCreate(meal as Meal);
+      if (!editing) await mealCreate(mealNew as Meal);
+      else {
+        await editMeal(meal, mealNew);
+      }
     } catch (error) {}
 
     navigation.navigate("confirm", status);
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      if (meal && meal.Name) {
+        setEditing(true);
+        setName(meal.Name);
+        setDescription(meal.Desc);
+        setDate(meal.Data);
+        setHour(meal.Hora);
+        setStatus(meal.Status);
+      } else {
+        setEditing(false);
+      }
+    }, [meal])
+  );
 
   return (
     <Container>

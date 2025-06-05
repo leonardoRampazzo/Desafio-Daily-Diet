@@ -6,7 +6,7 @@ declare global {
     Name: string;
     Desc: string;
     Data: string;
-    Hour: string;
+    Hora: string;
     Status: boolean;
   };
 

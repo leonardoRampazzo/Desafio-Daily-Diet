@@ -33,7 +33,7 @@ export async function mealDelete(meal: Meal) {
         item.Name === meal.Name &&
         item.Desc === meal.Desc &&
         item.Data === meal.Data &&
-        item.Hour === meal.Hora &&
+        item.Hora === meal.Hora &&
         item.Status === meal.Status
       );
     });
@@ -46,11 +46,11 @@ export async function mealDelete(meal: Meal) {
   }
 }
 
-export async function editMeal(meal: Meal) {
+export async function editMeal(meal: Meal, mealNew: Meal) {
 
   try {
     await mealDelete(meal);
-    await mealCreate(meal);
+    await mealCreate(mealNew);
   }
   catch (erro) {
     throw erro;
